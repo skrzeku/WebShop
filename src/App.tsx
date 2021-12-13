@@ -19,8 +19,10 @@ import {Dispatch} from "redux";
 import {Routes, Route} from "react-router-dom";
 import ArchiveProduct from "./containers/ArchiveProduct";
 import Cart from "./containers/Cart";
-import ArchivePost from "./containers/ArchivePost";
+import ArchivePost from "./containers/Blog";
 import Checkout from "./containers/Checkout";
+import Navigation from "./components/Navigation";
+import Blog from "./containers/Blog";
 type Status = 'loading' | 'failed' | 'finished';
 
 
@@ -93,12 +95,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <USer name={'siema'} email={'lol'}/>
+          <Navigation></Navigation>
+        {/*<USer name={'siema'} email={'lol'}/>*/}
       </header>
         <Routes>
            <Route  path='/' element={<HomePage/>}/>
            <Route  path='products' element={<ArchiveProduct/>}/>
-           <Route  path='blog' element={<ArchivePost/>}/>
+           <Route  path='blog' element={<Blog/>}/>
            <Route  path='cart' element={<Cart/>}/>
            <Route  path='checkout' element={<Checkout/>}/>
             <Route path="*" element={<HomePage />} />
@@ -114,13 +117,13 @@ function App() {
                     )
             }}
         </Fetch>
-      <Test4/>
-        <Test2/>
-        <Hooks/>
-        <ReduxApp/>
+      {/*<Test4/>*/}
+      {/*  <Test2/>*/}
+      {/*  <Hooks/>*/}
+      {/*  <ReduxApp/>*/}
 
 
-        <HomePage/>
+        {/*<HomePage/>*/}
     </div>
   );
 }

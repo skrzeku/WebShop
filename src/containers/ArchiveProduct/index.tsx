@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ArchiveProduct:React.FC = ()=> {
-    return(<div></div>)
+    return(<div>All Products</div>)
 }
 
 export default ArchiveProduct;
