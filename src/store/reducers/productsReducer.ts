@@ -3,22 +3,59 @@ import {FETCH_PRODUCTS_SUCCESS} from 'store/actions/productsActions';
 import {IFetchProductsAction} from "../actions/productsActions";
 
 
+interface IThumbnail {
+    name: string;
+    url: string;
+}
+
+export interface IAttribute {
+    id: number;
+    Name: string;
+    Value: string
+}
+
+export interface IProductVariant {
+    id: number;
+    Price: number;
+    Attr: IAttribute[];
+}
+
+export interface IGallery {
+    id: number;
+    name: string;
+    url: string;
+}
+
+    export interface IPost {
+        id: number;
+        title: string;
+        gallery: IGallery[];
+    }
 
 export interface IProduct {
-    id: string;
-    category: string[];
-    title: string;
+    id: number;
+    Name: string;
+    Category: string;
+    Type: string;
+    Price: number;
+    OldPrice: number;
+    Gallery: IGallery[];
+    Content: any;
+    Posts: IPost[];
+    Variant: IProductVariant[];
+    Thumbnail: IThumbnail;
+
     // variants: ProductVariant[];
 }
 
 export interface IProducts {
-    products: any[];
+    products: IProduct[];
 }
 
 export type Action = IFetchProductsAction;
 
 
-const initialState: IProducts[] = [];
+const initialState: IProduct[] = [];
 
 
 const  productsReducer = (state = initialState, action: Action)=> {
@@ -30,7 +67,7 @@ const  productsReducer = (state = initialState, action: Action)=> {
         default:
             return state;
     }
-}
+};
 
 // export const getProducts = state => state.products;
 export default productsReducer;

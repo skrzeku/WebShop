@@ -12,5 +12,7 @@ export const fetchProductsSuccess = (products : IProducts) => {
     return {
         type: FETCH_PRODUCTS_SUCCESS,
         products: products
+
     }
+
 };

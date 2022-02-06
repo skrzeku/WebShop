@@ -23,6 +23,8 @@ import ArchivePost from "./containers/Blog";
 import Checkout from "./containers/Checkout";
 import Navigation from "./components/Navigation";
 import Blog from "./containers/Blog";
+import SingleProduct from "./containers/SingleProduct";
+import Footer from "./containers/Footer";
 type Status = 'loading' | 'failed' | 'finished';
 
 
@@ -104,13 +106,13 @@ function App() {
            <Route  path='blog' element={<Blog/>}/>
            <Route  path='cart' element={<Cart/>}/>
            <Route  path='checkout' element={<Checkout/>}/>
+           <Route  path='product/:id' element={<SingleProduct/>}/>
             <Route path="*" element={<HomePage />} />
         </Routes>
 
         <Fetch url={'siema'}>
             {({data, status}) => {
                 return (<>
-
                         {status == 'loading' &&  <p>Loading</p>}
                         {status === 'finished' && <List items={data} renderItem={(item)=> item}/> }
                     </>
@@ -124,6 +126,7 @@ function App() {
 
 
         {/*<HomePage/>*/}
+        <Footer/>
     </div>
   );
 }

@@ -7,21 +7,18 @@ import Slider from "components/Slider";
 import Partners from "components/Partners";
 import BestSellers from "components/BestSellers";
 import MostCategories from "components/MostCategories";
+import {Container, Row} from "../../assets/styles/global";
 
 
 class HomePage extends React.Component{
 
-    constructor(props:any) {
-        super(props)}
 
-    componentDidMount(): void {
-        // fetchProductsStartAsync();
-    }
 
     render(): React.ReactNode {
         return(<div>
             {/* eslint-disable-next-line react/jsx-no-undef */}
-            <Slider/>HomePage
+            <Slider/>
+            HomePage
             <MostCategories/>
             <BestSellers/>
             <Partners/>
@@ -29,13 +26,13 @@ class HomePage extends React.Component{
     }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch) => bindActionCreators({
-    fetchProducts: fetchProductsStartAsync
-}, dispatch);
+// const mapDispatchToProps = (dispatch:Dispatch) => bindActionCreators({
+//     fetchProducts: fetchProductsStartAsync
+// }, dispatch);
 
 export default connect(
     null,
-    mapDispatchToProps
+    // mapDispatchToProps
 )(HomePage)
 
 
