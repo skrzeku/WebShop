@@ -1,109 +1,93 @@
 import React, {useEffect, useState} from 'react';
 import Hero from "../../components/Hero";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {IProduct, IProductVariant} from "../../store/reducers/productsReducer";
 import {State} from "../../store/rootReducer";
 import {Col50, Container, Row} from "../../assets/styles/global";
 import index from "../HomePage";
+import {Button} from "../../ui-components/Button";
+import Quantity from "../../components/Quantity";
+import Pagination from "../../components/Pagination";
 
 
-const SingleProduct:React.FC = ()=> {
+const SingleProduct:React.FC = (props)=> {
     let { id } = useParams();
-    // console.log(typeof id);
-    // console.log(useParams());
+
     const Product = useSelector<State, IProduct | undefined>(state => state.products.find((item) => item.id == Number(id)));
 
-
-    const [glassVariant, setGlassVariant] = useState<string>('tak');
-    const [colorVariant, setColorVariant] = useState<string >('');
     const [variant, setVariant] = useState<IProductVariant>();
+    const [quantity, setQuantity] = useState(1);
+
+    console.log(useLocation());
+
+    console.log(quantity);
+
 
 
     useEffect(()=> {
         if (Product) {
             console.log('Wykonano');
             setVariant(Product?.Variant[0]);
-            // setColorVariant(Product?.Variant[0].A);
         }
 
     },[Product]);
 
+    const  integer_to_roman =(num:number)=> {
+        if (typeof num !== 'number')
+            return false;
+
+        var digits:any = String(+num).split(""),
+            key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+                "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+                "","I","II","III","IV","V","VI","VII","VIII","IX"],
+            roman_num = "",
+            i = 3;
+        while (i--)
+            roman_num = (key[+digits.pop() + (i * 10)] || "") + roman_num;
+        return Array(+digits.join("") + 1).join("M") + roman_num;
+    };
+
+    const incrementQuantity = ()=> {
+      setQuantity(quantity + 1);
+      console.log('siema');
+    };
+    const decrecementQuantity = ()=> {
+        setQuantity(quantity - 1);
+    };
 
 
-
-
-
-
-
-    const DisplayAttributeValues = (name: string)=>  [...new Set (Product?.Variant.map((one, ind)=> {
-
-        const lol = one.Attr
-            .filter((oni, index)=> {
-               return (oni.Name == name)
-            })
-            .map((attr)=> {
-                return attr.Value
-            })[0];
-
-        // ind === 0 && console.log('dzia;a');
-        // console.log(Product?.Variant[0]);
-
-        return lol
-    }).filter(i => {
-        return i;
-    }))];
-    const SelectMarkup = (Attribute: string[] | undefined, method: (str: string)=> void)=>{
-        return(
-        <select  onChange={e => {
-            method(e.target.value);
-            findCurrentVariant();
-
-        }}
-        value={colorVariant}>
+    const VariantSelectMarkup = (
+        <select onChange={event => setVariant(Product?.Variant[+event.target.value])}>
             {
-                Attribute?.map((one)=> {
-                    return(<option value={one}> {one}</option>)
+                Product?.Variant.map((variant, index)=> {
+                    console.log(index);
+                    return(<option value={index}>Wariant {integer_to_roman(index + 1)}</option>);
                 })
             }
         </select>
-        )
-    };
 
-    // const GlassAttributes = DisplayAttributeValues("Przeszklenie");
-    // const ColorAttributes = DisplayAttributeValues("Kolor");
-    // const GlassSelects = SelectMarkup(GlassAttributes, setGlassVariant);
-    // const ColorSelects = SelectMarkup(ColorAttributes, setColorVariant);
+);
 
-    const findCurrentVariant = () : void => {
-        console.log('wykonano');
-        const Variant = Product?.Variant.find((variant:IProductVariant)=> {
-            return variant.Attr.find((one)=> {
-                console.log(colorVariant);
-               return  one.Name === "Kolor" && one.Value === colorVariant
-            })
-        });
-        console.log(Product?.Variant[0]);
-        Variant? setVariant(Variant) : setVariant(Product?.Variant[0]);
-        // setVariant(Variant);
-        // return Variant? Variant : Product?.Variant[0];
-    };
-    // findCurrentVariant();
+    const VariantDetails = (
+      <div>
+          {
+              variant?.Kolor && (<span>Kolor: {variant?.Kolor}</span>)
+          }
+          {
+              variant?.Przeszklenie && (<span>Przeszklenie: {variant?.Przeszklenie}</span>)
+          }
+      </div>
+    );
 
 
-    // console.log(findCurrentVariant(glassVariant, colorVariant));
-    // console.log(glassVariant);
+
 
     const VarationsForm = (
         Product?.Variant.length && (<div>
             <span>Warianty</span>
-            <label>Przeszklenie</label>
-            {/*{*/}
-            {/*GlassSelects*/}
-            {/*}*/}
-            {/*{*/}
-            {/*    ColorSelects*/}
-            {/*}*/}
+
+
 
 
         </div>)
@@ -112,18 +96,27 @@ const SingleProduct:React.FC = ()=> {
     return(<div><Hero title={'Nasza Oferta'}></Hero>
         <Container>
             <Row>
-                <Col50>Slider</Col50>
                 <Col50>
+                    <img src={Product?.Thumbnail.url}/>
+                </Col50>
+                <Col50>
+                    <Pagination/>
                 <h2>{Product?.Name}</h2>
                     <div>{Product?.Price} zł</div>
-                    {VarationsForm}
-                    {/*{findCurrentVariant(glassVariant, colorVariant)?.Price}*/}
+                    {VariantSelectMarkup}
+
+
                     {variant?.Price} {variant?.id}
+                    {VariantDetails}
+                    <div>
+                        <Quantity lessQuantity={decrecementQuantity} moreQuantity={incrementQuantity} value={quantity}/>
+                        <Button>Dodaj do koszyka</Button>
+                    </div>
                 </Col50>
             </Row>
         </Container>
         <button onClick={()=> {
-            console.log(Product);
+            console.log(variant);
             // console.log(findCurrentVariant());
             // setColorVariant('Czerwony');
         } }>siema</button>

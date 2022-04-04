@@ -9,7 +9,7 @@ interface RowProps {
 
 
 export const Container = Styled.div`
-padding: 30px 15px;
+padding: 0 15px;
 width: 90%;
 max-width: 1500px;
 margin: 0 auto;
@@ -57,3 +57,5 @@ export const Col9 = Styled.div`
     padding: 15px;
     max-width: 75%;
     `;
+
+

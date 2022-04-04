@@ -9,5 +9,9 @@ padding: 10px 30px;
 border-radius: 20px;
 border: none;
 font-size: 15px;
+transition: 0.4s all ease-in-out;
 text-transform: uppercase;
+    &:hover {
+    background-color: white;
+    }
 `;

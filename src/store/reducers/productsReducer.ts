@@ -17,7 +17,9 @@ export interface IAttribute {
 export interface IProductVariant {
     id: number;
     Price: number;
-    Attr: IAttribute[];
+    Kolor: string;
+    Przeszklenie: string;
+    Thumbnail: IGallery;
 }
 
 export interface IGallery {
