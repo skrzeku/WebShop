@@ -40,7 +40,7 @@ export interface IProduct {
     Category: string;
     Type: string;
     Price: number;
-    OldPrice: number;
+    salePrice: number;
     Gallery: IGallery[];
     Content: any;
     Posts: IPost[];

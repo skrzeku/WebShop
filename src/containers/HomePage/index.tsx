@@ -8,6 +8,7 @@ import Partners from "components/Partners";
 import BestSellers from "components/BestSellers";
 import MostCategories from "components/MostCategories";
 import {Container, Row} from "../../assets/styles/global";
+import HomeSale from "../../components/HomeSale";
 
 
 class HomePage extends React.Component{
@@ -21,6 +22,7 @@ class HomePage extends React.Component{
             HomePage
             <MostCategories/>
             <BestSellers/>
+            <HomeSale/>
             <Partners/>
         </div>);
     }

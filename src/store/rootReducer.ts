@@ -1,9 +1,11 @@
 import {combineReducers} from "redux";
 import productsReducer from "./reducers/productsReducer";
+import categoryReducer from "./reducers/CategoryReducer";
 
 
 const rootReducer =combineReducers({
-products: productsReducer
+products: productsReducer,
+    categories: categoryReducer
 });
 
 

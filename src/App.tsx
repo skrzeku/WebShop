@@ -25,6 +25,7 @@ import Navigation from "./components/Navigation";
 import Blog from "./containers/Blog";
 import SingleProduct from "./containers/SingleProduct";
 import Footer from "./containers/Footer";
+import {fetchCategorySuccess} from "./store/actions/productsActions";
 type Status = 'loading' | 'failed' | 'finished';
 
 
@@ -77,11 +78,11 @@ function App() {
         });
 
     //
-    // useEffect(()=> {
-    //     axios.get('http://localhost:1337/produkties').then(response => {
-    //         console.log(response.data);
-    //     });
-    // }, []);
+    useEffect(()=> {
+        axios.get('http://localhost:1337/categories').then(response => {
+            dispatch(fetchCategorySuccess(response.data));
+        });
+    }, []);
 
     const List = ({items, renderItem}: IListProps) => (
         <ul>

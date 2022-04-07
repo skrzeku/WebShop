@@ -21,7 +21,7 @@ const SingleProduct:React.FC = (props)=> {
 
     console.log(useLocation());
 
-    console.log(quantity);
+    console.log(Product);
 
 
 

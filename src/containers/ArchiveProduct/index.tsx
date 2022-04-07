@@ -12,6 +12,7 @@ import ProductsSidebar from "../../components/ProductFilterBar";
 import ProductFilterBar from "../../components/ProductFilterBar";
 import ProductFilterContent from "../../components/ProductFilterContent";
 import ProductFilter from "../../components/ProductFilter";
+import {ICategory} from "../../store/reducers/CategoryReducer";
 
 
 const Rows = Styled.div`
@@ -94,11 +95,13 @@ color: white;
 const ArchiveProduct:React.FC = ()=> {
 
     const allProducts = useSelector<State, IProduct[]>(state => state.products);
+    const allCategories = useSelector<State, ICategory[]>(state => state.categories);
 
     return(<div>
         <Hero title={'Nasza Oferta'}></Hero>
         <Container>
                 <ProductFilter/>
+
 
                     <Row>
                         {
