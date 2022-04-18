@@ -1,5 +1,5 @@
 import Styled from 'styled-components';
-import {colorPrimary} from "../../assets/styles/variables";
+import {colorPrimary, colorSecondary} from "../../assets/styles/variables";
 
 
 export const Button = Styled.button`
@@ -12,6 +12,6 @@ font-size: 15px;
 transition: 0.4s all ease-in-out;
 text-transform: uppercase;
     &:hover {
-    background-color: white;
+    background-color: ${colorSecondary};
     }
 `;

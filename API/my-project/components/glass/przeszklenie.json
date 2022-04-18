@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_glass_przeszklenies",
+  "info": {
+    "name": "Przeszklenie",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "Wart": {
+      "type": "boolean"
+    }
+  }
+}

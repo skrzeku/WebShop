@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "produkty",
+  "info": {
+    "name": "Product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "post": {
+      "model": "post",
+      "via": "products"
+    },
+    "Price": {
+      "type": "integer",
+      "required": true
+    },
+    "Variant": {
+      "type": "component",
+      "repeatable": true,
+      "component": "variant.variant"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Prosty",
+        "Warianty"
+      ]
+    },
+    "Thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "Gallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "category": {
+      "via": "products",
+      "model": "category"
+    },
+    "salePrice": {
+      "type": "integer"
+    }
+  }
+}

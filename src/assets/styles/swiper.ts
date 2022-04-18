@@ -115,3 +115,8 @@ color: ${colorSecondary};
 text-transform: uppercase;
 margin-bottom: 0;
 `;
+
+export const SwiperSale = Styled(Swiper)`
+position: relative;
+
+`;

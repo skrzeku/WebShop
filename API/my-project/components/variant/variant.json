@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_variant_variants",
+  "info": {
+    "name": "Variant",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Price": {
+      "type": "integer",
+      "required": true
+    },
+    "Thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Kolor": {
+      "type": "string"
+    },
+    "Przeszklenie": {
+      "type": "enumeration",
+      "enum": [
+        "tak",
+        "nie"
+      ]
+    }
+  }
+}

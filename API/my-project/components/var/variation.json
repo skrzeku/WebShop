@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_var_variations",
+  "info": {
+    "name": "variation",
+    "icon": "adjust",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "string",
+      "required": false
+    },
+    "glass": {
+      "type": "boolean",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_glass_gls",
+  "info": {
+    "name": "gl",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Przeszklenie": {
+      "type": "boolean"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}

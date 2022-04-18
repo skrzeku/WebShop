@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_attr_atrybuties",
+  "info": {
+    "name": "Atrybuty",
+    "icon": "allergies",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "enumeration",
+      "enum": [
+        "Przeszklenie",
+        "Kolor"
+      ]
+    },
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

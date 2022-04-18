@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_glass_glasses",
+  "info": {
+    "name": "Glass",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "Bool": {
+      "type": "boolean"
+    }
+  }
+}
