@@ -1,10 +1,7 @@
 import React, {ReactElement, useEffect} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import HomePage from './containers/HomePage'
-import Test from './test';
-import Test2 from './test2';
-import Test4 from './test4'
+import 'App.css';
+import HomePage from 'containers/HomePage'
+
 import axios from 'axios';
 
 import Fetch from './tests/fetch';
@@ -12,20 +9,23 @@ import List from './tests/fetch';
 import Hooks from "./tests/hooks";
 import ReduxApp from "./tests/redux";
 import {store} from "./store/store";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import {fetchProducts, fetchProductsStartAsync} from "./store/fetchProducts";
 import {useDispatch} from "react-redux";
 import {Dispatch} from "redux";
 import {Routes, Route} from "react-router-dom";
-import ArchiveProduct from "./containers/ArchiveProduct";
-import Cart from "./containers/Cart";
+import ArchiveProduct from "containers/ArchiveProduct";
+import Cart from "containers/Cart";
 import ArchivePost from "./containers/Blog";
-import Checkout from "./containers/Checkout";
-import Navigation from "./components/Navigation";
-import Blog from "./containers/Blog";
-import SingleProduct from "./containers/SingleProduct";
-import Footer from "./containers/Footer";
-import {fetchCategorySuccess} from "./store/actions/productsActions";
+import Checkout from "containers/Checkout";
+import Navigation from "components/Navigation";
+import Blog from "containers/Blog";
+import SingleProduct from "containers/SingleProduct";
+import Footer from "containers/Footer";
+import {fetchCategorySuccess, fetchPostsSuccess} from "store/actions/productsActions";
+import SinglePost from "containers/SinglePost";
 type Status = 'loading' | 'failed' | 'finished';
 
 
@@ -82,6 +82,10 @@ function App() {
         axios.get('http://localhost:1337/categories').then(response => {
             dispatch(fetchCategorySuccess(response.data));
         });
+
+        axios.get('http://localhost:1337/posts').then(res => {
+            dispatch(fetchPostsSuccess(res.data));
+        }) ;
     }, []);
 
     const List = ({items, renderItem}: IListProps) => (
@@ -108,6 +112,7 @@ function App() {
            <Route  path='cart' element={<Cart/>}/>
            <Route  path='checkout' element={<Checkout/>}/>
            <Route  path='product/:id' element={<SingleProduct/>}/>
+           <Route  path='post/:id' element={<SinglePost/>}/>
             <Route path="*" element={<HomePage />} />
         </Routes>
 

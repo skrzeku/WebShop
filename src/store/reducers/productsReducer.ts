@@ -1,5 +1,5 @@
 
-import {FETCH_PRODUCTS_SUCCESS} from 'store/actions/productsActions';
+import {Action, FETCH_PRODUCTS_SUCCESS} from 'store/actions/productsActions';
 import {IFetchProductsAction} from "../actions/productsActions";
 
 
@@ -32,6 +32,8 @@ export interface IGallery {
         id: number;
         title: string;
         gallery: IGallery[];
+        thumbnail: IGallery;
+        content: any;
     }
 
 export interface IProduct {
@@ -54,13 +56,12 @@ export interface IProducts {
     products: IProduct[];
 }
 
-export type Action = IFetchProductsAction;
 
 
 const initialState: IProduct[] = [];
 
 
-const  productsReducer = (state = initialState, action: Action)=> {
+const  productsReducer = (state = initialState, action: IFetchProductsAction)=> {
     switch(action.type) {
         case FETCH_PRODUCTS_SUCCESS:
             return [

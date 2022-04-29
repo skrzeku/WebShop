@@ -17,8 +17,8 @@
       "required": true
     },
     "post": {
-      "model": "post",
-      "via": "products"
+      "via": "products",
+      "model": "post"
     },
     "Price": {
       "type": "integer",

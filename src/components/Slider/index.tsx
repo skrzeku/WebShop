@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 // Import Swiper React components
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
-import 'swiper/swiper.min.css';
+import { Swiper, SwiperSlide } from '../../../node_modules/swiper/react/swiper-react';
+import '../../../node_modules/swiper/swiper.min.css';
 import axios from "axios";
 
 import {Button} from "../../ui-components/Button";

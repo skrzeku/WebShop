@@ -9,6 +9,8 @@ import BestSellers from "components/BestSellers";
 import MostCategories from "components/MostCategories";
 import {Container, Row} from "../../assets/styles/global";
 import HomeSale from "../../components/HomeSale";
+import HomePosts from "../../components/PostsSlider";
+import SinglePost from "../SinglePost";
 
 
 class HomePage extends React.Component{
@@ -22,7 +24,9 @@ class HomePage extends React.Component{
             HomePage
             <MostCategories/>
             <BestSellers/>
+            <HomePosts/>
             {/*<HomeSale/>*/}
+            <SinglePost/>
             <Partners/>
         </div>);
     }

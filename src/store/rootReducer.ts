@@ -1,11 +1,14 @@
 import {combineReducers} from "redux";
 import productsReducer from "./reducers/productsReducer";
 import categoryReducer from "./reducers/CategoryReducer";
+import postReducer from "./reducers/postReducer";
 
 
-const rootReducer =combineReducers({
-products: productsReducer,
-    categories: categoryReducer
+const rootReducer = combineReducers({
+
+    categories: categoryReducer,
+    posts: postReducer,
+    products: productsReducer
 });
 
 

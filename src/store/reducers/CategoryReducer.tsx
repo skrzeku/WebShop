@@ -1,6 +1,6 @@
 import React from 'react';
-import {FETCH_PRODUCTS_SUCCESS, IFetchCategoriesAction} from "../actions/productsActions";
-import {Action, IGallery, IPost, IProduct, IProductVariant} from "./productsReducer";
+import {Action, FETCH_PRODUCTS_SUCCESS, IFetchCategoriesAction} from "store/actions/productsActions";
+import { IGallery, IPost, IProduct, IProductVariant} from "store/reducers/productsReducer";
 
 export interface ICategory {
     id: number;
@@ -10,9 +10,12 @@ export interface ICategory {
     // variants: ProductVariant[];
 }
 
+const initialState: ICategory[] = [];
 
 
-const  categoryReducer = (state = [], action: IFetchCategoriesAction)=> {
+
+
+const  categoryReducer = (state = initialState, action: IFetchCategoriesAction)=> {
     switch(action.type) {
         case 'FETCH_CATEGORIES_SUCCESS':
             return [

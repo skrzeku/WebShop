@@ -6,7 +6,7 @@ import {IProduct} from "../../store/reducers/productsReducer";
 import  {A11y, Autoplay, Navigation, Pagination, Scrollbar} from "swiper";
 import {SwipeR, SwiperBold, SwiperContent, SwiperSale, SwiperTitle, SwpierImg} from "../../assets/styles/swiper";
 import {Button} from "../../ui-components/Button";
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Swiper, SwiperSlide } from '../../../node_modules/swiper/react/swiper-react';
 import NoImage from "../../assets/images/noImage.png";
 import Styled from 'styled-components';
 import {colorSecondary} from "../../assets/styles/variables";

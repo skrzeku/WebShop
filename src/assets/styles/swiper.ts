@@ -2,7 +2,7 @@ import Styled from "styled-components";
 import {colorPrimary, colorSecondary} from "./variables";
 import {Overlay} from "./mixins";
 
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Swiper, SwiperSlide } from '../../../node_modules/swiper/react/swiper-react';
 
 
 
