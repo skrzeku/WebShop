@@ -24,10 +24,11 @@ class HomePage extends React.Component{
             HomePage
             <MostCategories/>
             <BestSellers/>
+            <Partners/>
             <HomePosts/>
             {/*<HomeSale/>*/}
             {/*<SinglePost/>*/}
-            <Partners/>
+
         </div>);
     }
 }

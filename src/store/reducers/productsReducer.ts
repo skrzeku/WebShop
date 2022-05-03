@@ -34,6 +34,7 @@ export interface IGallery {
         gallery: IGallery[];
         thumbnail: IGallery;
         content: any;
+        created_at : string
     }
 
 export interface IProduct {
