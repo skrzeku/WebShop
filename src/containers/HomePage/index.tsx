@@ -26,7 +26,7 @@ class HomePage extends React.Component{
             <BestSellers/>
             <HomePosts/>
             {/*<HomeSale/>*/}
-            <SinglePost/>
+            {/*<SinglePost/>*/}
             <Partners/>
         </div>);
     }

@@ -97,7 +97,7 @@ const SingleProduct:React.FC = (props)=> {
         <Container>
             <Row>
                 <Col50>
-                    <img src={Product?.Thumbnail.url}/>
+                    <img src={Product?.Thumbnail?.url}/>
                 </Col50>
                 <Col50>
                     <Pagination/>

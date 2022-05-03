@@ -1,14 +1,14 @@
 import React from "react";
-import {Container, Row} from "../../assets/styles/global";
-import {SectionTitle} from "../../assets/styles/typography";
+import {Container, Row} from "assets/styles/global";
+import {SectionTitle} from "assets/styles/typography";
 import {useSelector} from "react-redux";
-import {State} from "../../store/rootReducer";
-import {ICategory} from "../../store/reducers/CategoryReducer";
+import {State} from "store/rootReducer";
+import {ICategory} from "store/reducers/CategoryReducer";
 import {IProduct} from "../../store/reducers/productsReducer";
-import NoImage from "../../assets/images/noImage.png";
+import NoImage from "assets/images/noImage.png";
 import Styled from 'styled-components';
 import {useNavigate} from "react-router-dom";
-import {colorPrimary, colorSecondary} from "../../assets/styles/variables";
+import {colorPrimary, colorSecondary} from "assets/styles/variables";
 
 const MostCategoriesSection = Styled.div`
 padding: 70px 0;
@@ -61,6 +61,8 @@ const MostCategories:React.FC = ()=> {
         navigate('/products');
     };
 
+
+
     return(<MostCategoriesSection>
         <Container>
             <SectionTitle><h2>Kategorie Produktów</h2></SectionTitle>
@@ -68,7 +70,7 @@ const MostCategories:React.FC = ()=> {
                 {
                     sortedCategories.map((one)=> {
                         return(<CategoryItem onClick={navigateToCategory}>
-                            <CategoryItem__image src={one.thumbnail? 'http://localhost:1337' + one.thumbnail?.url : NoImage} />
+                            <CategoryItem__image src={one.thumbnail?  'http://localhost:1337' + one.thumbnail?.url : NoImage} />
                             <CategoryItem__title>{one.Name}</CategoryItem__title>
                             <CategoryItem__text>{one.products.length | 0} Produktów</CategoryItem__text>
                         </CategoryItem>)

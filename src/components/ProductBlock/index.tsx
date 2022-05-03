@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import {colorPrimary} from "assets/styles/variables";
 import {IProduct} from "store/reducers/productsReducer";
 import {Price} from "assets/styles/product";
-import {Button} from "../../ui-components/Button";
 
 const ProductContainer = Styled.div`
 position: relative;

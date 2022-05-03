@@ -8,4 +8,7 @@ color: ${colorSecondary};
     del {
     color: #bbb;
     }
+    span {
+    font-weight: bold;
+    }
 `;

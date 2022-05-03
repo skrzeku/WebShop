@@ -1,19 +1,33 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import Styled from 'styled-components';
-import {colorPrimary} from "../../assets/styles/variables";
-import {Container, Row} from "../../assets/styles/global";
+import {colorPrimary, colorSecondary} from "assets/styles/variables";
+import {Container, Row} from "assets/styles/global";
+// @ts-ignore
+import logo from 'assets/images/logo.png';
+import NavigationSearch from "components/NavigationSearch";
+
 
 
 const LocalWhite = 'rgba(255,255,255,.8)';
 const BodrerColor = 'rgba(58, 77, 105, 1)';
-const Links = Styled(Link)`
+const Links = Styled(NavLink)`
 text-decoration: none;
 font-size: 16px;
 color: white;
 text-transform: uppercase;
 padding: 10px;
 display: inline-block;
+    &:hover {
+    color: ${colorSecondary};
+    }
+    i {
+    margin-right: 5px;
+    }
+        &.active {
+          color: ${colorSecondary};
+          font-weight: 500;
+        }
 `;
 
 const Header = Styled.div`
@@ -47,6 +61,7 @@ border-bottom: solid 1px ${BodrerColor};
     }
       i {
     font-size: 20px;
+    color: ${colorSecondary};
     }
 `;
 
@@ -114,10 +129,10 @@ const Navigation:React.FC = ()=> {
         <HeaderBottom>
             <Container>
                 <Row spaceBetween flexCenter>
-                    <img src="#" alt="logo"/>
-                    <div>Wyszukiwarka</div>
+                   <Link to="/"><img src={logo} alt="logo"/></Link>
+                    <NavigationSearch/>
                     <nav>
-                        <Links to="/">Home</Links>
+                        <Links to="/" >Home</Links>
 
                         <Links to="/products">Products</Links>
                         <Links to="/blog">Blog</Links>
