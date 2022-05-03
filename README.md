@@ -1,4 +1,4 @@
-Tech stack: Typesctipt, React, Redux, Strapi v3, Styled Components
+Tech stack: Typescript, React, Redux, Strapi v3, Styled Components, React Boostrap, React Hook Forms, Axios, Swiper JS
 
 To run:
 
