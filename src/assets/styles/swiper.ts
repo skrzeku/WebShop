@@ -79,7 +79,8 @@ ${Overlay('0,0,0', '0.4')};
     }
     &-active {
     > div {
-    transform: translateX(-50%) translateY(20%);
+    animation: sliderContentFade 1.5s ease-in-out;
+  
     }
     }
 }
@@ -92,7 +93,7 @@ bottom: 30%;
 text-align: center;
 left: 50%;
 max-width: 600px;
-transform: translateX(-50%) translateY(50%);
+transform: translateX(-50%) translateY(40%);
 color: white;
 `;
 

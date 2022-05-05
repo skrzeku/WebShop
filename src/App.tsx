@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {fetchProducts, fetchProductsStartAsync} from "./store/fetchProducts";
 import {useDispatch} from "react-redux";
 import {Dispatch} from "redux";
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, useLocation} from "react-router-dom";
 import ArchiveProduct from "containers/ArchiveProduct";
 import Cart from "containers/Cart";
 import ArchivePost from "./containers/Blog";
@@ -72,6 +72,12 @@ function App() {
     //     fetchProductsStartAsync: fetchProductsStartAsync
     // });
 
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     useEffect(()=> {
     // mapDispatchToProps(dispatch);
      dispatch(fetchProductsStartAsync());
@@ -125,13 +131,6 @@ function App() {
                     )
             }}
         </Fetch>
-      {/*<Test4/>*/}
-      {/*  <Test2/>*/}
-      {/*  <Hooks/>*/}
-      {/*  <ReduxApp/>*/}
-
-
-        {/*<HomePage/>*/}
         <Footer/>
     </div>
   );

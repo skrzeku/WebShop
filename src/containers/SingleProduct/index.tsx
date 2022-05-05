@@ -93,7 +93,7 @@ const SingleProduct:React.FC = (props)=> {
         </div>)
     );
 
-    return(<div><Hero title={'Nasza Oferta'}></Hero>
+    return(<div><Hero title={'Nasza Oferta'}/>
         <Container>
             <Row>
                 <Col50>

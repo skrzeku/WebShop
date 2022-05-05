@@ -8,6 +8,7 @@ import axios from "axios";
 
 import {Button} from "../../ui-components/Button";
 import {SwipeR, SwiperBold, SwiperContent, SwiperTitle, SwiperWrapper, SwpierImg} from "../../assets/styles/swiper";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -22,6 +23,7 @@ import {SwipeR, SwiperBold, SwiperContent, SwiperTitle, SwiperWrapper, SwpierImg
 const Slider:React.FC = ()=> {
 
     const [gallery, setGallery] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=> {
         axios
@@ -63,7 +65,7 @@ const Slider:React.FC = ()=> {
                                         <SwiperBold>Lorem ipsum sit amet</SwiperBold>
                                         <SwiperTitle>Lorem ipsum dolor sit amet,</SwiperTitle>
 
-                                        <Button>Nasza oferta</Button>
+                                        <Button onClick={ event => navigate('products')}>Nasza oferta</Button>
                                     </SwiperContent>
                                 </SwiperSlide>
                             )

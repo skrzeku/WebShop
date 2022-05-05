@@ -11,8 +11,8 @@ import {A11y, Autoplay, Navigation, Pagination, Scrollbar} from "swiper";
 const PartnersContainer = Styled.div`
 background-image: url(${partners} );
 position: relative;
-background-color: ${colorPrimary};
-background-blend-mode: multiply;
+background-color: rgba(0,0,0,0.7);
+background-blend-mode: color;
 padding: 120px 0;
 background-position: center;
 background-attachment: fixed;
@@ -68,7 +68,7 @@ const Partners:React.FC = ()=> {
                         partners?.map((partner)=> {
                             return(<SwiperSlide>
                                 <PartnerLogo src={'http://localhost:1337' + partner.logo.url}/>
-                                <p>{partner.name}</p>
+                                {/*<p>{partner.name}</p>*/}
                             </SwiperSlide>)
                         })
                     }

@@ -25,7 +25,7 @@ const ArchiveProduct:React.FC = ()=> {
     const allCategories = useSelector<State, ICategory[]>(state => state.categories);
 
     return(<div>
-        <Hero title={'Nasza Oferta'}></Hero>
+        <Hero title={'Nasza Oferta'}/>
         <Container>
                 <ProductFilter/>
 

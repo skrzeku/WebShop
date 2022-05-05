@@ -8,6 +8,8 @@ import Styled from 'styled-components';
 import {Col, Container, Row} from "react-bootstrap";
 import {SectionTitle} from "assets/styles/typography";
 import {colorSecondary} from "assets/styles/variables";
+import Hero from "components/Hero/index";
+import React from "react";
 
 const GalleryImg = Styled.img`
 border: solid 1px lightgray;
@@ -30,7 +32,8 @@ const SinglePost = ()=> {
 
     // console.log(Post);
     return(<Container>
-        <div>Hero with Breadcrumb</div>
+        <Hero title={'Blog'}/>
+
         <Row>
             {/*<Col6></Col6>*/}
             <Col lg="9">

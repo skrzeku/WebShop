@@ -58,7 +58,22 @@ font-weight: 600;
 `;
 
 const PostContent = Styled.div`
-padding: 15px;
+padding: 30px 15px 15px;
+position: relative;
+z-index: 5;
+`;
+
+const PostCategory = Styled.span`
+position: absolute;
+left: 50%;
+top: 0;
+transform: translate(-50%, -50%);
+z-index: 5;
+color: white;
+font-size: 14px;
+padding: 0 15px;
+text-transform: uppercase;
+background-color: ${colorSecondary};
 `;
 
 const PostLink = Styled.button`
@@ -112,6 +127,7 @@ const PostBlock = ({post} : PostProps )=> {
         <PostDate>{date.getDate()}<p>{date.toLocaleDateString('default', { month: 'short' })}</p></PostDate>
         <PostImageWrapper className='postImageWrapper'><img src={post.thumbnail? 'http://localhost:1337' + post.thumbnail?.url : NoImage}/></PostImageWrapper>
        <PostContent>
+           <PostCategory>Aktualności</PostCategory>
            <PostTitle>{post.title}</PostTitle>
            <PostText>{post.content.replace( /(<([^>]+)>)/ig, '').replace('#', '').slice(0, 120)}</PostText>
            <PostLink onClick={event => navigate('post/' + post.id)}>Czytaj więcej<i className="las la-ellipsis-h"></i></PostLink>

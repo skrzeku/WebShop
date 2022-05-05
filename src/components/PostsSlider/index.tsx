@@ -14,7 +14,7 @@ const HomePosts:React.FC = ()=> {
     const posts = useSelector<State, IPost[]>(state => state.posts);
 
     // console.log(posts);
-    return(<Container>
+    return(<Container className="pb-5">
         <SectionTitle><h2>Najnowsze wpisy</h2></SectionTitle>
 
         <Row>{posts.map((post)=> {
