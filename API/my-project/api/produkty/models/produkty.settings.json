@@ -51,24 +51,15 @@
     "Content": {
       "type": "richtext"
     },
-    "Gallery": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
     "category": {
       "via": "products",
       "model": "category"
     },
     "salePrice": {
       "type": "integer"
+    },
+    "color": {
+      "type": "string"
     }
   }
 }

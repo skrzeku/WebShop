@@ -25,7 +25,7 @@ box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);
 `;
 const PostImageWrapper= Styled.div`
 position: relative;
-height: 300px;
+height: 250px;
 width: 100%;
 overflow: hidden;
 ${Overlay('0,0,0', '0.4')};

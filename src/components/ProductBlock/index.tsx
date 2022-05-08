@@ -76,16 +76,20 @@ interface IProps {
 
 const ProductBlock = ({product} :  IProps)  => {
 
+    console.log(product);
+
 
 return(<ProductContainer>
     {
-        product?.Variant.length ? <ProductBadge>Warianty</ProductBadge> : null
+        product?.Type == "Warianty" && <ProductBadge>Warianty</ProductBadge>
     }
     <ProductImg src={product.Thumbnail? 'http://localhost:1337' + product.Thumbnail?.url : NoImage}/>
     <ProductTitle>{product.Name}</ProductTitle>
-    <ProductCategory>{product.Category}</ProductCategory>
-    <Price><del>{product.Price} zł</del> <span>{product.salePrice} zł</span></Price>
-    <div>
+    <ProductCategory>{product.category?.Name}</ProductCategory>
+    {
+        product.salePrice ?  <Price><del>{product.Price} zł</del> <span>{product.salePrice} zł</span></Price> :
+            <Price><span>{product.Price} zł</span></Price>
+    }    <div>
         <ProductLink to={'/product/' + product.id}>Więcej</ProductLink>
         {/*<Button ><i className="las la-cart-plus"></i>Dodaj do koszyka</Button>*/}
 

@@ -1,6 +1,7 @@
 
 import {Action, FETCH_PRODUCTS_SUCCESS} from 'store/actions/productsActions';
 import {IFetchProductsAction} from "../actions/productsActions";
+import {ICategory} from "src/store/reducers/CategoryReducer";
 
 
 interface IThumbnail {
@@ -37,10 +38,12 @@ export interface IGallery {
         created_at : string
     }
 
+
+
 export interface IProduct {
     id: number;
     Name: string;
-    Category: string;
+    category: ICategory;
     Type: string;
     Price: number;
     salePrice: number;
@@ -49,6 +52,7 @@ export interface IProduct {
     Posts: IPost[];
     Variant: IProductVariant[];
     Thumbnail: IThumbnail;
+    color: string;
 
     // variants: ProductVariant[];
 }
